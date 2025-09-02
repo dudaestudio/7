@@ -135,6 +135,34 @@ header{
   position:absolute; inset:auto auto 50% 50%; transform:translate(-50%,-50%);
   opacity:.35; font-family:"DM Mono", monospace; letter-spacing:.3em; font-size:1.1rem;
 }
+/* ---- Carta con ilustración al frente (sin romper las demás) ---- */
+.card-front.has-illust{
+  padding:0;                 /* el texto va abajo, no encima */
+  display:grid;
+  grid-template-rows: 62% 1fr;   /* 62% imagen, 38% texto */
+}
+
+.card-illustration{
+  position:relative; overflow:hidden;
+  border-bottom:1px solid rgba(255,255,255,.10);
+  background: radial-gradient(60% 40% at 50% 50%, rgba(58,88,168,.18), transparent 60%);
+}
+.card-illustration img{
+  width:100%; height:100%; object-fit:cover; display:block;
+  filter:saturate(1.05) contrast(1.02);
+}
+
+/* el símbolo puede quedar flotando sobre la imagen con discreción */
+.card-front.has-illust .card-sigil{
+  position:absolute; top:10px; left:0; right:0;
+  transform:none; opacity:.28; font-size:1rem; letter-spacing:.35em;
+}
+
+/* contenedor del texto frontal (título + meta) */
+.front-content{
+  padding:14px 16px 16px;
+  display:flex; flex-direction:column; gap:6px; justify-content:flex-end;
+}
 
 /* ===== Footer ===== */
 footer{ padding:40px 20px; text-align:center; color:var(--muted) }
@@ -215,21 +243,37 @@ footer{ padding:40px 20px; text-align:center; color:var(--muted) }
     <p class="lead">Frente con símbolo, título y meta. Hover para leer la carta completa.</p>
 
     <div class="grid">
-      <!-- Imagen & Asesoría -->
-      <div class="card">
-        <div class="card-inner">
-          <div class="card-face card-front">
-            <div class="card-corners"><span></span><span></span><span></span><span></span></div>
-            <div class="card-sigil">✶</div>
-            <div class="card-title">Imagen & Asesoría</div>
-            <div class="card-meta">Maquillaje · Styling · Story</div>
-          </div>
-          <div class="card-face card-back">
-            <div class="card-title">Transformación</div>
-            <p>Te ayudamos a presentarte ante el mundo: look impecable, fotos y narrativa coherente.</p>
-          </div>
-        </div>
+<!-- Imagen & Asesoría (con ilustración) -->
+<div class="card">
+  <div class="card-inner">
+    <!-- Frente -->
+    <div class="card-face card-front has-illust">
+      <!-- esquinas y foil se mantienen por herencia -->
+      <div class="card-corners"><span></span><span></span><span></span><span></span></div>
+
+      <!-- símbolo tenue sobre la ilustración -->
+      <div class="card-sigil">✶</div>
+
+      <!-- ilustración -->
+      <div class="card-illustration">
+        <img src="assets/cartas/la-espejista.png" alt="Carta La Espejista — Imagen & Asesoría" loading="lazy">
       </div>
+
+      <!-- texto frontal abajo -->
+      <div class="front-content">
+        <div class="card-title">Imagen & Asesoría</div>
+        <div class="card-meta">Maquillaje · Styling · Story</div>
+      </div>
+    </div>
+
+    <!-- Reverso (flip igual que antes) -->
+    <div class="card-face card-back">
+      <div class="card-title">Transformación</div>
+      <p>Te ayudamos a presentarte ante el mundo: look impecable, fotos y narrativa coherente.</p>
+    </div>
+  </div>
+</div>
+
 
       <!-- Web & Producto -->
       <div class="card">
