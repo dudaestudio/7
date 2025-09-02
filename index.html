@@ -6,6 +6,7 @@
 <title>DUDA Estudio — Portal</title>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
+/* ===== Paleta ===== */
 :root{
   --orange1: rgb(243,85,24);
   --blue1:   rgb(41,111,197);
@@ -18,122 +19,136 @@
 *{box-sizing:border-box} html,body{height:100%}
 body{margin:0;background:var(--blackv);color:var(--text);font-family:"Space Grotesk",system-ui,sans-serif;overflow-x:hidden}
 
-/* ===== Fondo inmersivo ===== */
-.bg{position:fixed;inset:0;z-index:-4;pointer-events:none;
+/* ===== Fondo inmersivo (cozy dark-fantasy) ===== */
+.bg{
+  position:fixed; inset:0; z-index:-4; pointer-events:none;
   background:
     radial-gradient(1000px 700px at 75% 25%, rgba(58,88,168,.20), transparent 60%),
     radial-gradient(1200px 900px at 25% 80%, rgba(243,85,24,.14), transparent 60%),
     radial-gradient(1800px 1200px at 50% 50%, rgba(36,18,73,.65), rgba(14,8,26,.95) 70%),
     linear-gradient(180deg, rgba(14,8,26,1), rgba(36,18,73,.97) 60%, rgba(14,8,26,1) 100%);
 }
-.stars,.stars::before,.stars::after{content:"";position:fixed;inset:0;z-index:-3;pointer-events:none;mix-blend-mode:screen;background-repeat:repeat}
-.stars{background-image:
-  radial-gradient(1.2px 1.2px at 20% 30%, rgba(255,255,255,.7), transparent 42%),
-  radial-gradient(1.2px 1.2px at 80% 20%, rgba(255,255,255,.6), transparent 42%),
-  radial-gradient(1px 1px at 35% 85%, rgba(255,255,255,.55), transparent 40%)}
-.stars::before{background-image:
-  radial-gradient(1.6px 1.6px at 60% 70%, rgba(170,200,255,.65), transparent 45%),
-  radial-gradient(1.4px 1.4px at 15% 60%, rgba(200,170,255,.55), transparent 45%)}
-.stars::after{background-image:
-  radial-gradient(2px 2px at 45% 25%, rgba(255,255,255,.75), transparent 45%),
-  radial-gradient(1.8px 1.8px at 70% 82%, rgba(170,210,255,.55), transparent 45%)}
-.fog{position:fixed;inset:0;z-index:-2;pointer-events:none;background:
-  radial-gradient(60% 40% at 50% 80%, rgba(243,85,24,.08), transparent 60%),
-  radial-gradient(50% 35% at 40% 20%, rgba(58,88,168,.12), transparent 65%);filter:blur(12px)}
-.vignette{position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(120% 120% at 50% 50%, transparent 55%, rgba(0,0,0,.5) 100%)}
-
-/* ===== Header ===== */
-header{
-  position:fixed;top:12px;left:12px;right:12px;z-index:30;
-  display:flex;align-items:center;justify-content:space-between;gap:12px;
-  padding:10px 14px;border-radius:18px;
-  background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));
-  border:1px solid rgba(255,255,255,.12);backdrop-filter: blur(6px) saturate(1.2);
+.stars,.stars::before,.stars::after{
+  content:""; position:fixed; inset:0; z-index:-3; pointer-events:none; mix-blend-mode:screen; background-repeat:repeat;
 }
-.brand{font-weight:700;letter-spacing:.6px}
-.nav a{margin-left:14px;color:inherit;opacity:.9;text-decoration:none}
-.nav a:hover{opacity:1;text-shadow:0 0 14px rgba(255,255,255,.35)}
+.stars{
+  background-image:
+    radial-gradient(1.2px 1.2px at 20% 30%, rgba(255,255,255,.7), transparent 42%),
+    radial-gradient(1.2px 1.2px at 80% 20%, rgba(255,255,255,.6), transparent 42%),
+    radial-gradient(1px 1px at 35% 85%, rgba(255,255,255,.55), transparent 40%);
+}
+.stars::before{
+  background-image:
+    radial-gradient(1.6px 1.6px at 60% 70%, rgba(170,200,255,.65), transparent 45%),
+    radial-gradient(1.4px 1.4px at 15% 60%, rgba(200,170,255,.55), transparent 45%);
+}
+.stars::after{
+  background-image:
+    radial-gradient(2px 2px at 45% 25%, rgba(255,255,255,.75), transparent 45%),
+    radial-gradient(1.8px 1.8px at 70% 82%, rgba(170,210,255,.55), transparent 45%);
+}
+.fog{
+  position:fixed; inset:0; z-index:-2; pointer-events:none;
+  background:
+    radial-gradient(60% 40% at 50% 80%, rgba(243,85,24,.08), transparent 60%),
+    radial-gradient(50% 35% at 40% 20%, rgba(58,88,168,.12), transparent 65%);
+  filter: blur(12px);
+}
+.vignette{
+  position:fixed; inset:0; z-index:-1; pointer-events:none;
+  background: radial-gradient(120% 120% at 50% 50%, transparent 55%, rgba(0,0,0,.5) 100%);
+}
 
-.section{min-height:100svh;display:grid;place-items:center;padding:100px 20px 70px}
-.center{text-align:center}
-.lead{color:var(--muted);max-width:68ch;margin:10px auto 0;line-height:1.6}
+/* ===== Header (blade sutil) ===== */
+header{
+  position:fixed; top:12px; left:12px; right:12px; z-index:30;
+  display:flex; align-items:center; justify-content:space-between; gap:12px;
+  padding:10px 14px; border-radius:18px;
+  background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));
+  border:1px solid rgba(255,255,255,.12); backdrop-filter:blur(6px) saturate(1.2);
+}
+.brand{font-weight:700; letter-spacing:.6px}
+.nav a{ margin-left:14px; opacity:.9; color:inherit; text-decoration:none }
+.nav a:hover{ opacity:1; text-shadow:0 0 14px rgba(255,255,255,.35) }
+
+/* ===== Secciones ===== */
+.section{ min-height:100svh; display:grid; place-items:center; padding:100px 20px 60px }
+.center{ text-align:center }
+.lead{ color:var(--muted); max-width:68ch; margin:10px auto 0; line-height:1.6 }
 
 /* ===== Portal ===== */
-.portal-wrap{width:min(92vw,780px);aspect-ratio:1/1;position:relative;margin-inline:auto}
-.portal-frame{position:absolute;inset:0;display:grid;place-items:center;
-  filter:drop-shadow(0 0 30px rgba(41,111,197,.35)) drop-shadow(0 0 50px rgba(243,85,24,.2))}
-.portal-edges{position:absolute;inset:0;border-radius:50%;border:1px solid rgba(255,255,255,.16);
-  box-shadow:inset 0 0 60px rgba(41,111,197,.25), inset 0 0 110px rgba(243,85,24,.15);
-  mask:radial-gradient(closest-side,transparent 54%,black 56%)}
-.portal-text{position:absolute;inset:18%;display:grid;place-items:center;text-align:center}
-.portal-text .mono{font-family:"DM Mono",monospace;letter-spacing:.12em;text-transform:uppercase;opacity:.9}
+.portal-wrap{ width:min(92vw,780px); aspect-ratio:1/1; position:relative; margin-inline:auto }
+.portal-frame{ position:absolute; inset:0; display:grid; place-items:center;
+  filter: drop-shadow(0 0 30px rgba(41,111,197,.35)) drop-shadow(0 0 50px rgba(243,85,24,.2));
+}
+.portal-edges{ position:absolute; inset:0; border-radius:50%; border:1px solid rgba(255,255,255,.16);
+  box-shadow: inset 0 0 60px rgba(41,111,197,.25), inset 0 0 110px rgba(243,85,24,.15);
+  mask: radial-gradient(closest-side, transparent 54%, black 56%);
+}
+.portal-text{ position:absolute; inset:18%; display:grid; place-items:center; text-align:center }
+.portal-text .mono{ font-family:"DM Mono", monospace; letter-spacing:.12em; text-transform:uppercase; opacity:.9 }
 
 /* ===== Botones sutiles ===== */
-.btn{display:inline-block;padding:10px 16px;border-radius:14px;margin:6px;color:var(--text);font-weight:700;
-  background:transparent;border:1px solid rgba(255,255,255,.22);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.35), 0 0 0 rgba(0,0,0,0);transition:box-shadow .2s, transform .1s}
-.btn:hover{transform:translateY(-1px);box-shadow:inset 0 1px 0 rgba(255,255,255,.6), 0 10px 28px rgba(0,0,0,.35)}
-.btn.accent{border-image:linear-gradient(90deg, rgba(41,111,197,.6), rgba(243,85,24,.6)) 1}
-
-/* ===== Cartas de tarot (con texto frontal) ===== */
-.grid{display:grid;gap:22px;width:min(1100px,92vw);grid-template-columns:repeat(auto-fit,minmax(260px,1fr));margin-top:26px}
-
-.card{perspective:1000px}
-.card-inner{position:relative;width:100%;aspect-ratio:3/5;transform-style:preserve-3d;transition:transform .65s cubic-bezier(.2,.8,.2,1)}
-.card:hover .card-inner{transform:rotateY(180deg)}
-
-.face{position:absolute;inset:0;border-radius:16px;overflow:hidden;backface-visibility:hidden}
-.front{
-  background:
-    linear-gradient(180deg, rgba(14,8,26,.78), rgba(36,18,73,.44)) padding-box,
-    linear-gradient(45deg, rgba(255,230,180,.65), rgba(180,140,80,.35)) border-box; /* marco dorado */
-  border:1px solid transparent; position:relative;
+.btn{
+  display:inline-block; padding:10px 16px; border-radius:14px; margin:6px; color:var(--text); font-weight:700;
+  background:transparent; border:1px solid rgba(255,255,255,.22);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.35), 0 0 0 rgba(0,0,0,0);
+  transition: box-shadow .2s ease, transform .1s ease;
 }
-.front::after{/* foil diagonal suave */
-  content:""; position:absolute; inset:-40%; background:
-    linear-gradient(60deg, rgba(255,255,255,0) 30%, rgba(255,255,255,.18) 50%, rgba(255,255,255,0) 70%);
-  transform:translateX(-60%) rotate(18deg); filter:blur(18px); opacity:.0; transition:opacity .25s, transform .6s;
-}
-.card:hover .front::after{opacity:.55; transform:translateX(30%) rotate(18deg)}
+.btn:hover{ transform:translateY(-1px); box-shadow:inset 0 1px 0 rgba(255,255,255,.55), 0 10px 28px rgba(0,0,0,.35) }
+.btn.accent{ border-image:linear-gradient(90deg, rgba(41,111,197,.6), rgba(243,85,24,.6)) 1 }
 
-.front .art{position:absolute;inset:0; background-size:cover;background-position:center;filter:saturate(1.05)}
-.front .veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.15),rgba(0,0,0,.35));}
-.front .orn{position:absolute;inset:10px;border-radius:12px;border:1px dashed rgba(255,255,255,.22);pointer-events:none}
-.front .roman{position:absolute;top:10px;left:0;right:0;text-align:center;font-family:"DM Mono",monospace;opacity:.9;letter-spacing:.25em}
-.front .title{position:absolute;bottom:38px;left:14px;right:14px;text-align:center;font-weight:700;text-shadow:0 2px 12px rgba(0,0,0,.45)}
-.front .meta{position:absolute;bottom:12px;left:14px;right:14px;text-align:center;font:400 .9rem "DM Mono",monospace;color:var(--muted)}
+/* ===== Grid ===== */
+.grid{ display:grid; gap:18px; margin-top:26px; width:min(1100px,92vw); grid-template-columns:repeat(auto-fit,minmax(240px,1fr)) }
 
-.back{transform:rotateY(180deg);display:flex;flex-direction:column;align-items:center;justify-content:center;
-  padding:20px;text-align:center;background:linear-gradient(180deg, rgba(14,8,26,.78), rgba(36,18,73,.44));
-  border:1px solid rgba(255,255,255,.14);border-radius:16px}
+/* ===== Cartas de Tarot (3:5, símbolo+texto frontal, flip al hover) ===== */
+.card{ perspective:1000px }
+.card-inner{ position:relative; width:100%; aspect-ratio:3/5; transform-style:preserve-3d; transition:transform .6s cubic-bezier(.2,.8,.2,1) }
+.card:hover .card-inner{ transform:rotateY(180deg) }
 
-/* Placeholders “místicos” visibles */
-.art.branding{
-  background-image:
-   radial-gradient(circle at 50% 38%, rgba(255,255,255,.25), rgba(41,111,197,.75) 40%, rgba(36,18,73,1) 70%),
-   conic-gradient(from 0deg, rgba(243,85,24,.35), rgba(97,69,165,.45), rgba(58,88,168,.4), rgba(243,85,24,.35));
+.card-face{
+  position:absolute; inset:0; border-radius:16px; overflow:hidden; backface-visibility:hidden;
+  border:1px solid rgba(255,255,255,.14);
+  background: linear-gradient(180deg, rgba(14,8,26,.78), rgba(36,18,73,.44));
 }
-.art.web{
-  background-image:
-   linear-gradient(135deg, rgba(243,85,24,.55), rgba(41,111,197,.55)),
-   radial-gradient(500px 320px at 50% 30%, rgba(255,255,255,.25), transparent 60%);
+.card-face::after{ /* foil diagonal sutil */
+  content:""; position:absolute; inset:-40%;
+  background: linear-gradient(60deg, rgba(255,255,255,0) 30%, rgba(255,255,255,.22) 50%, rgba(255,255,255,0) 70%);
+  transform:translateX(-60%) rotate(20deg); filter:blur(18px); opacity:0; transition:opacity .25s, transform .6s;
 }
-.art.docs{
-  background-image:
-   radial-gradient(600px 420px at 50% 55%, rgba(255,255,255,.2), transparent 65%),
-   linear-gradient(180deg, rgba(97,69,165,.85), rgba(36,18,73,1));
+.card:hover .card-face::after{ opacity:.55; transform:translateX(30%) rotate(20deg) }
+
+.card-front{ display:flex; flex-direction:column; justify-content:flex-end; padding:16px; gap:6px; position:relative }
+.card-title{ font-size:1.1rem; font-weight:700 }
+.card-meta{ font:400 .9rem "DM Mono",monospace; color:var(--muted) }
+.card-back{ transform:rotateY(180deg); display:flex; flex-direction:column; justify-content:center; align-items:center; padding:18px; text-align:center }
+
+.card-corners span{ /* ornamentos */
+  position:absolute; width:14px; height:14px; border:1px solid rgba(255,255,255,.35); border-radius:3px
 }
-.art.software{
-  background-image:
-   radial-gradient(420px 420px at 70% 30%, rgba(255,255,255,.18), transparent 60%),
-   linear-gradient(120deg, rgba(41,111,197,.75), rgba(243,85,24,.6));
+.card-corners span:nth-child(1){ top:8px; left:8px }
+.card-corners span:nth-child(2){ top:8px; right:8px }
+.card-corners span:nth-child(3){ bottom:8px; left:8px }
+.card-corners span:nth-child(4){ bottom:8px; right:8px }
+
+.card-sigil{ /* símbolo central */
+  position:absolute; inset:auto auto 50% 50%; transform:translate(-50%,-50%);
+  opacity:.35; font-family:"DM Mono", monospace; letter-spacing:.3em; font-size:1.1rem;
 }
 
-footer{padding:40px 20px;text-align:center;color:var(--muted)}
+/* ===== Footer ===== */
+footer{ padding:40px 20px; text-align:center; color:var(--muted) }
+
+/* ===== Cometas ===== */
+#comets{ position:fixed; inset:0; pointer-events:none; z-index:-1 }
 </style>
 </head>
 <body>
-<div class="bg"></div><div class="stars"></div><div class="fog"></div><div class="vignette"></div>
+<canvas id="comets"></canvas>
+<div class="bg"></div>
+<div class="stars"></div>
+<div class="fog"></div>
+<div class="vignette"></div>
 
 <header>
   <div class="brand">DUDA ✦ Estudio</div>
@@ -144,7 +159,7 @@ footer{padding:40px 20px;text-align:center;color:var(--muted)}
 </header>
 
 <!-- ===== HERO / PORTAL ===== -->
-<section class="section" id="inicio">
+<section class="section" id="inicio" aria-label="Inicio">
   <div class="center">
     <div class="portal-wrap">
       <div class="portal-frame">
@@ -163,53 +178,54 @@ footer{padding:40px 20px;text-align:center;color:var(--muted)}
               <stop offset="100%" stop-color="rgba(36,18,73,.0)"/>
             </radialGradient>
           </defs>
-          <g filter="url(#warp)" transform-origin="250 250">
-            <circle cx="250" cy="250" r="180" fill="url(#gate)">
-              <animateTransform attributeName="transform" type="rotate" from="0 250 250" to="360 250 250" dur="26s" repeatCount="indefinite"/>
-            </circle>
-            <circle cx="250" cy="250" r="148" fill="none" stroke="rgba(58,88,168,.45)" stroke-width="1.2">
-              <animateTransform attributeName="transform" type="rotate" from="360 250 250" to="0 250 250" dur="18s" repeatCount="indefinite"/>
-            </circle>
-            <circle cx="250" cy="250" r="210" fill="none" stroke="rgba(243,85,24,.35)" stroke-width="1.2">
-              <animateTransform attributeName="transform" type="rotate" from="0 250 250" to="-360 250 250" dur="36s" repeatCount="indefinite"/>
-            </circle>
+          <g filter="url(#warp)">
+            <g transform-origin="250 250">
+              <circle cx="250" cy="250" r="180" fill="url(#gate)">
+                <animateTransform attributeName="transform" type="rotate" from="0 250 250" to="360 250 250" dur="26s" repeatCount="indefinite"/>
+              </circle>
+              <circle cx="250" cy="250" r="148" fill="none" stroke="rgba(58,88,168,.45)" stroke-width="1.2">
+                <animateTransform attributeName="transform" type="rotate" from="360 250 250" to="0 250 250" dur="18s" repeatCount="indefinite"/>
+              </circle>
+              <circle cx="250" cy="250" r="210" fill="none" stroke="rgba(243,85,24,.35)" stroke-width="1.2">
+                <animateTransform attributeName="transform" type="rotate" from="0 250 250" to="-360 250 250" dur="36s" repeatCount="indefinite"/>
+              </circle>
+            </g>
           </g>
         </svg>
       </div>
       <div class="portal-edges"></div>
       <div class="portal-text">
         <div class="mono">DUAL INVOCATION</div>
-        <div style="font-weight:700" id="duo">Nombre A ✧ Nombre B</div>
-        <div class="mono">BRAND · WEB · MAKEUP · SOFTWARE</div>
+        <div class="portal-name" id="duo">Nombre A ✧ Nombre B</div>
+        <div class="mono">BRAND · WEB · MOTION · MAKEUP</div>
         <div style="margin-top:16px">
           <a class="btn accent" href="#servicios">Ver Servicios</a>
           <a class="btn" href="#contacto">Agendar</a>
         </div>
       </div>
     </div>
-    <p class="lead">El portal gira y respira. Fondo oscuro con estrellas quietas y niebla suave para ese “cozy ominoso”.</p>
+    <p class="lead">Portal que gira y se distorsiona. Fondo con estrellas quietas, niebla y viñeta — cozy ominoso.</p>
   </div>
 </section>
 
-<!-- ===== SERVICIOS (cartas con borde + texto frontal) ===== -->
-<section class="section" id="servicios">
+<!-- ===== SERVICIOS (cartas como las querías) ===== -->
+<section class="section" id="servicios" aria-label="Servicios">
   <div class="center">
     <h2>Lectura de Servicios</h2>
-    <p class="lead">Cada carta tiene su cara frontal (resumen) y reverso (detalle). Pasa el cursor para leerla completa.</p>
+    <p class="lead">Frente con símbolo, título y meta. Hover para leer la carta completa.</p>
 
     <div class="grid">
       <!-- Imagen & Asesoría -->
       <div class="card">
         <div class="card-inner">
-          <div class="face front">
-            <div class="art branding"></div><div class="veil"></div>
-            <div class="orn"></div>
-            <div class="roman">I</div>
-            <div class="title">Imagen & Asesoría</div>
-            <div class="meta">Maquillaje · Styling · Story</div>
+          <div class="card-face card-front">
+            <div class="card-corners"><span></span><span></span><span></span><span></span></div>
+            <div class="card-sigil">✶</div>
+            <div class="card-title">Imagen & Asesoría</div>
+            <div class="card-meta">Maquillaje · Styling · Story</div>
           </div>
-          <div class="face back">
-            <h3>Transformación</h3>
+          <div class="card-face card-back">
+            <div class="card-title">Transformación</div>
             <p>Te ayudamos a presentarte ante el mundo: look impecable, fotos y narrativa coherente.</p>
           </div>
         </div>
@@ -218,16 +234,15 @@ footer{padding:40px 20px;text-align:center;color:var(--muted)}
       <!-- Web & Producto -->
       <div class="card">
         <div class="card-inner">
-          <div class="face front">
-            <div class="art web"></div><div class="veil"></div>
-            <div class="orn"></div>
-            <div class="roman">II</div>
-            <div class="title">Web & Producto</div>
-            <div class="meta">Landing · Portfolio · Interacción</div>
+          <div class="card-face card-front">
+            <div class="card-corners"><span></span><span></span><span></span><span></span></div>
+            <div class="card-sigil">⌘</div>
+            <div class="card-title">Web & Producto</div>
+            <div class="card-meta">Landing · Portfolio · Interacción</div>
           </div>
-          <div class="face back">
-            <h3>Invocar Sitio</h3>
-            <p>Front hipnótico con micro-interacciones. De GitHub Pages a backend propio cuando toque.</p>
+          <div class="card-face card-back">
+            <div class="card-title">Invocar Sitio</div>
+            <p>Desde GitHub Pages a backend propio. Diseño con intención, rendimiento real.</p>
           </div>
         </div>
       </div>
@@ -235,15 +250,14 @@ footer{padding:40px 20px;text-align:center;color:var(--muted)}
       <!-- Docs & CV -->
       <div class="card">
         <div class="card-inner">
-          <div class="face front">
-            <div class="art docs"></div><div class="veil"></div>
-            <div class="orn"></div>
-            <div class="roman">III</div>
-            <div class="title">Docs & CV</div>
-            <div class="meta">Currículums · Tarjetas digitales</div>
+          <div class="card-face card-front">
+            <div class="card-corners"><span></span><span></span><span></span><span></span></div>
+            <div class="card-sigil">¶</div>
+            <div class="card-title">Docs & CV</div>
+            <div class="card-meta">Currículums · Tarjetas Digitales</div>
           </div>
-          <div class="face back">
-            <h3>Claridad</h3>
+          <div class="card-face card-back">
+            <div class="card-title">Claridad</div>
             <p>Texto preciso + diseño que te consigue llamadas. Entrega lista para enviar.</p>
           </div>
         </div>
@@ -252,15 +266,14 @@ footer{padding:40px 20px;text-align:center;color:var(--muted)}
       <!-- Software a Medida -->
       <div class="card">
         <div class="card-inner">
-          <div class="face front">
-            <div class="art software"></div><div class="veil"></div>
-            <div class="orn"></div>
-            <div class="roman">IV</div>
-            <div class="title">Software a Medida</div>
-            <div class="meta">Automatizaciones · Integraciones</div>
+          <div class="card-face card-front">
+            <div class="card-corners"><span></span><span></span><span></span><span></span></div>
+            <div class="card-sigil">∞</div>
+            <div class="card-title">Software a Medida</div>
+            <div class="card-meta">Automatizaciones · Integraciones</div>
           </div>
-          <div class="face back">
-            <h3>Herramientas</h3>
+          <div class="card-face card-back">
+            <div class="card-title">Herramientas</div>
             <p>Dashboards, integraciones y sistemas livianos que potencian tu operación.</p>
           </div>
         </div>
@@ -268,27 +281,35 @@ footer{padding:40px 20px;text-align:center;color:var(--muted)}
     </div>
 
     <p class="lead" style="margin-top:22px">
-      Escríbenos a <span style="font-family:'DM Mono',monospace;letter-spacing:.12em">dudaestudio777@gmail.com</span>
+      Contacto: <span style="font-family:'DM Mono',monospace;letter-spacing:.12em">dudaestudio777@gmail.com</span>
     </p>
   </div>
 </section>
 
 <!-- ===== CONTACTO ===== -->
-<section class="section" id="contacto">
+<section class="section" id="contacto" aria-label="Contacto">
   <div class="center">
     <h2>Abra el círculo</h2>
-    <p class="lead">Cuentas tu historia, armamos el ritual. Respuesta breve y directa.</p>
+    <p class="lead">Escríbenos y trazamos la primera runa.</p>
     <a class="btn accent" href="mailto:dudaestudio777@gmail.com">Enviar correo</a>
   </div>
 </section>
 
 <footer>© DUDA Estudio — portales, estrellas y cartas.</footer>
 
+<!-- ===== JS: alterna nombres + cometas ===== -->
 <script>
 /* alterna nombres */
-const duo=document.getElementById('duo');
-const names=["Nombre A ✧ Nombre B","DUDA Estudio"]; let i=0;
-setInterval(()=>{i=(i+1)%names.length; duo.textContent=names[i];},2600);
+const duo = document.getElementById('duo');
+const names = ["Nombre A ✧ Nombre B","DUDA Estudio"]; let i=0;
+setInterval(()=>{ i=(i+1)%names.length; duo.textContent = names[i]; }, 2600);
+
+/* cometas ligeros */
+const cv=document.getElementById('comets'),ctx=cv.getContext('2d');let W,H,comets=[];
+const resize=()=>{W=cv.width=innerWidth;H=cv.height=innerHeight};addEventListener('resize',resize);resize();
+function spawn(){const y=Math.random()*H*0.6+H*0.1;comets.push({x:-50,y,vx:4+Math.random()*3,hue:Math.random()<.5?220:20});}
+setInterval(spawn,1800);
+(function tick(){ctx.clearRect(0,0,W,H);comets.forEach(c=>{c.x+=c.vx;const grd=ctx.createLinearGradient(c.x-80,c.y,c.x+10,c.y);const col=c.hue===220?'rgba(41,111,197,':'rgba(243,85,24,';grd.addColorStop(0,col+'0)');grd.addColorStop(1,col+'0.85)');ctx.strokeStyle=grd;ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(c.x-80,c.y);ctx.lineTo(c.x+10,c.y);ctx.stroke();ctx.fillStyle=col+'0.9)';ctx.beginPath();ctx.arc(c.x+10,c.y,1.8,0,Math.PI*2);ctx.fill();});comets=comets.filter(c=>c.x<W+100);requestAnimationFrame(tick)})();
 </script>
 </body>
 </html>
