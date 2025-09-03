@@ -1,214 +1,50 @@
 <!doctype html>
 <html lang="es">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>DUDA Estudio — Portal</title>
-<link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-/* ===== Paleta ===== */
-:root{
-  --orange1: rgb(243,85,24);
-  --blue1:   rgb(41,111,197);
-  --purple1: rgb(36,18,73);
-  --blackv:  rgb(14,8,26);
-  --neon-p:  rgb(97,69,165);
-  --steel:   rgb(58,88,168);
-  --text:#ECEAF5; --muted:#C9C6DC;
-}
-*{box-sizing:border-box} html,body{height:100%}
-body{margin:0;background:var(--blackv);color:var(--text);font-family:"Space Grotesk",system-ui,sans-serif;overflow-x:hidden}
-
-/* ===== Fondo inmersivo (cozy dark-fantasy) ===== */
-.bg{
-  position:fixed; inset:0; z-index:-4; pointer-events:none;
-  background:
-    radial-gradient(1000px 700px at 75% 25%, rgba(58,88,168,.20), transparent 60%),
-    radial-gradient(1200px 900px at 25% 80%, rgba(243,85,24,.14), transparent 60%),
-    radial-gradient(1800px 1200px at 50% 50%, rgba(36,18,73,.65), rgba(14,8,26,.95) 70%),
-    linear-gradient(180deg, rgba(14,8,26,1), rgba(36,18,73,.97) 60%, rgba(14,8,26,1) 100%);
-}
-.stars,.stars::before,.stars::after{
-  content:""; position:fixed; inset:0; z-index:-3; pointer-events:none; mix-blend-mode:screen; background-repeat:repeat;
-}
-.stars{
-  background-image:
-    radial-gradient(1.2px 1.2px at 20% 30%, rgba(255,255,255,.7), transparent 42%),
-    radial-gradient(1.2px 1.2px at 80% 20%, rgba(255,255,255,.6), transparent 42%),
-    radial-gradient(1px 1px at 35% 85%, rgba(255,255,255,.55), transparent 40%);
-}
-.stars::before{
-  background-image:
-    radial-gradient(1.6px 1.6px at 60% 70%, rgba(170,200,255,.65), transparent 45%),
-    radial-gradient(1.4px 1.4px at 15% 60%, rgba(200,170,255,.55), transparent 45%);
-}
-.stars::after{
-  background-image:
-    radial-gradient(2px 2px at 45% 25%, rgba(255,255,255,.75), transparent 45%),
-    radial-gradient(1.8px 1.8px at 70% 82%, rgba(170,210,255,.55), transparent 45%);
-}
-.fog{
-  position:fixed; inset:0; z-index:-2; pointer-events:none;
-  background:
-    radial-gradient(60% 40% at 50% 80%, rgba(243,85,24,.08), transparent 60%),
-    radial-gradient(50% 35% at 40% 20%, rgba(58,88,168,.12), transparent 65%);
-  filter: blur(12px);
-}
-.vignette{
-  position:fixed; inset:0; z-index:-1; pointer-events:none;
-  background: radial-gradient(120% 120% at 50% 50%, transparent 55%, rgba(0,0,0,.5) 100%);
-}
-
-/* ===== Header (blade sutil) ===== */
-header{
-  position:fixed; top:12px; left:12px; right:12px; z-index:30;
-  display:flex; align-items:center; justify-content:space-between; gap:12px;
-  padding:10px 14px; border-radius:18px;
-  background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));
-  border:1px solid rgba(255,255,255,.12); backdrop-filter:blur(6px) saturate(1.2);
-}
-.brand{font-weight:700; letter-spacing:.6px}
-.nav a{ margin-left:14px; opacity:.9; color:inherit; text-decoration:none }
-.nav a:hover{ opacity:1; text-shadow:0 0 14px rgba(255,255,255,.35) }
-
-/* ===== Secciones ===== */
-.section{ min-height:100svh; display:grid; place-items:center; padding:100px 20px 60px }
-.center{ text-align:center }
-.lead{ color:var(--muted); max-width:68ch; margin:10px auto 0; line-height:1.6 }
-
-/* ===== Portal ===== */
-.portal-wrap{ width:min(92vw,780px); aspect-ratio:1/1; position:relative; margin-inline:auto }
-.portal-frame{ position:absolute; inset:0; display:grid; place-items:center;
-  filter: drop-shadow(0 0 30px rgba(41,111,197,.35)) drop-shadow(0 0 50px rgba(243,85,24,.2));
-}
-.portal-edges{ position:absolute; inset:0; border-radius:50%; border:1px solid rgba(255,255,255,.16);
-  box-shadow: inset 0 0 60px rgba(41,111,197,.25), inset 0 0 110px rgba(243,85,24,.15);
-  mask: radial-gradient(closest-side, transparent 54%, black 56%);
-}
-.portal-text{ position:absolute; inset:18%; display:grid; place-items:center; text-align:center }
-.portal-text .mono{ font-family:"DM Mono", monospace; letter-spacing:.12em; text-transform:uppercase; opacity:.9 }
-
-/* ===== Botones sutiles ===== */
-.btn{
-  display:inline-block; padding:10px 16px; border-radius:14px; margin:6px; color:var(--text); font-weight:700;
-  background:transparent; border:1px solid rgba(255,255,255,.22);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.35), 0 0 0 rgba(0,0,0,0);
-  transition: box-shadow .2s ease, transform .1s ease;
-}
-.btn:hover{ transform:translateY(-1px); box-shadow:inset 0 1px 0 rgba(255,255,255,.55), 0 10px 28px rgba(0,0,0,.35) }
-.btn.accent{ border-image:linear-gradient(90deg, rgba(41,111,197,.6), rgba(243,85,24,.6)) 1 }
-
-/* ===== Grid ===== */
-.grid{ display:grid; gap:18px; margin-top:26px; width:min(1100px,92vw); grid-template-columns:repeat(auto-fit,minmax(240px,1fr)) }
-
-/* ===== Cartas de Tarot (3:5, símbolo+texto frontal, flip al hover) ===== */
-.card{ perspective:1000px }
-.card-inner{ position:relative; width:100%; aspect-ratio:3/5; transform-style:preserve-3d; transition:transform .6s cubic-bezier(.2,.8,.2,1) }
-.card:hover .card-inner{ transform:rotateY(180deg) }
-
-.card-face{
-  position:absolute; inset:0; border-radius:16px; overflow:hidden; backface-visibility:hidden;
-  border:1px solid rgba(255,255,255,.14);
-  background: linear-gradient(180deg, rgba(14,8,26,.78), rgba(36,18,73,.44));
-}
-.card-face::after{ /* foil diagonal sutil */
-  content:""; position:absolute; inset:-40%;
-  background: linear-gradient(60deg, rgba(255,255,255,0) 30%, rgba(255,255,255,.22) 50%, rgba(255,255,255,0) 70%);
-  transform:translateX(-60%) rotate(20deg); filter:blur(18px); opacity:0; transition:opacity .25s, transform .6s;
-}
-.card:hover .card-face::after{ opacity:.55; transform:translateX(30%) rotate(20deg) }
-
-.card-front{ display:flex; flex-direction:column; justify-content:flex-end; padding:16px; gap:6px; position:relative }
-.card-title{ font-size:1.1rem; font-weight:700 }
-.card-meta{ font:400 .9rem "DM Mono",monospace; color:var(--muted) }
-.card-back{ transform:rotateY(180deg); display:flex; flex-direction:column; justify-content:center; align-items:center; padding:18px; text-align:center }
-
-.card-corners span{ /* ornamentos */
-  position:absolute; width:14px; height:14px; border:1px solid rgba(255,255,255,.35); border-radius:3px
-}
-.card-corners span:nth-child(1){ top:8px; left:8px }
-.card-corners span:nth-child(2){ top:8px; right:8px }
-.card-corners span:nth-child(3){ bottom:8px; left:8px }
-.card-corners span:nth-child(4){ bottom:8px; right:8px }
-
-.card-sigil{ /* símbolo central */
-  position:absolute; inset:auto auto 50% 50%; transform:translate(-50%,-50%);
-  opacity:.35; font-family:"DM Mono", monospace; letter-spacing:.3em; font-size:1.1rem;
-}
-/* ---- Carta con ilustración al frente (sin romper las demás) ---- */
-.card-front.has-illust{
-  padding:0;                 /* el texto va abajo, no encima */
-  display:grid;
-  grid-template-rows: 62% 1fr;   /* 62% imagen, 38% texto */
-}
-
-.card-illustration{
-  position:relative; overflow:hidden;
-  border-bottom:1px solid rgba(255,255,255,.10);
-  background: radial-gradient(60% 40% at 50% 50%, rgba(58,88,168,.18), transparent 60%);
-}
-.card-illustration img{
-  width:100%; height:100%; object-fit:cover; display:block;
-  filter:saturate(1.05) contrast(1.02);
-}
-
-/* el símbolo puede quedar flotando sobre la imagen con discreción */
-.card-front.has-illust .card-sigil{
-  position:absolute; top:10px; left:0; right:0;
-  transform:none; opacity:.28; font-size:1rem; letter-spacing:.35em;
-}
-
-/* contenedor del texto frontal (título + meta) */
-.front-content{
-  padding:14px 16px 16px;
-  display:flex; flex-direction:column; gap:6px; justify-content:flex-end;
-}
-
-/* ===== Footer ===== */
-footer{ padding:40px 20px; text-align:center; color:var(--muted) }
-
-/* ===== Cometas ===== */
-#comets{ position:fixed; inset:0; pointer-events:none; z-index:-1 }
-</style>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>DUDA Estudio — Portal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<canvas id="comets"></canvas>
-<div class="bg"></div>
-<div class="stars"></div>
-<div class="fog"></div>
-<div class="vignette"></div>
+  <!-- Fondo inmersivo -->
+  <canvas id="comets"></canvas>
+  <div class="bg"></div>
+  <div class="stars"></div>
+  <div class="fog"></div>
+  <div class="vignette"></div>
 
-<header>
-  <div class="brand">DUDA ✦ Estudio</div>
-  <nav class="nav">
-    <a href="#servicios">Servicios</a>
-    <a href="#contacto">Contacto</a>
-  </nav>
-</header>
+  <!-- Header -->
+  <header>
+    <div class="brand">DUDA ✦ Estudio</div>
+    <nav class="nav">
+      <a href="#servicios">Servicios</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
 
-<!-- ===== HERO / PORTAL ===== -->
-<section class="section" id="inicio" aria-label="Inicio">
-  <div class="center">
-    <div class="portal-wrap">
-      <div class="portal-frame">
-        <svg viewBox="0 0 500 500" width="100%" height="100%" aria-hidden="true">
-          <defs>
-            <filter id="warp">
-              <feTurbulence type="fractalNoise" baseFrequency="0.008" numOctaves="2" seed="7" result="n">
-                <animate attributeName="baseFrequency" dur="8s" values="0.012;0.008;0.010;0.012" repeatCount="indefinite"/>
-              </feTurbulence>
-              <feDisplacementMap in="SourceGraphic" in2="n" scale="22"/>
-            </filter>
-            <radialGradient id="gate" cx="50%" cy="50%" r="50%">
-              <stop offset="0%"  stop-color="rgba(255,255,255,.18)"/>
-              <stop offset="58%" stop-color="rgba(41,111,197,.45)"/>
-              <stop offset="78%" stop-color="rgba(243,85,24,.45)"/>
-              <stop offset="100%" stop-color="rgba(36,18,73,.0)"/>
-            </radialGradient>
-          </defs>
-          <g filter="url(#warp)">
-            <g transform-origin="250 250">
+  <!-- HERO / PORTAL -->
+  <section class="section" id="inicio" aria-label="Inicio">
+    <div class="center">
+      <div class="portal-wrap">
+        <div class="portal-frame">
+          <svg viewBox="0 0 500 500" width="100%" height="100%" aria-hidden="true">
+            <defs>
+              <filter id="warp">
+                <feTurbulence type="fractalNoise" baseFrequency="0.008" numOctaves="2" seed="7" result="n">
+                  <animate attributeName="baseFrequency" dur="8s" values="0.012;0.008;0.010;0.012" repeatCount="indefinite"/>
+                </feTurbulence>
+                <feDisplacementMap in="SourceGraphic" in2="n" scale="22"/>
+              </filter>
+              <radialGradient id="gate" cx="50%" cy="50%" r="50%">
+                <stop offset="0%"  stop-color="rgba(255,255,255,.18)"/>
+                <stop offset="58%" stop-color="rgba(41,111,197,.45)"/>
+                <stop offset="78%" stop-color="rgba(243,85,24,.45)"/>
+                <stop offset="100%" stop-color="rgba(36,18,73,0)"/>
+              </radialGradient>
+            </defs>
+            <g filter="url(#warp)" transform-origin="250 250">
               <circle cx="250" cy="250" r="180" fill="url(#gate)">
                 <animateTransform attributeName="transform" type="rotate" from="0 250 250" to="360 250 250" dur="26s" repeatCount="indefinite"/>
               </circle>
@@ -219,139 +55,173 @@ footer{ padding:40px 20px; text-align:center; color:var(--muted) }
                 <animateTransform attributeName="transform" type="rotate" from="0 250 250" to="-360 250 250" dur="36s" repeatCount="indefinite"/>
               </circle>
             </g>
-          </g>
-        </svg>
-      </div>
-      <div class="portal-edges"></div>
-      <div class="portal-text">
-        <div class="mono">DUAL INVOCATION</div>
-        <div class="portal-name" id="duo">Nombre A ✧ Nombre B</div>
-        <div class="mono">BRAND · WEB · MOTION · MAKEUP</div>
-        <div style="margin-top:16px">
-          <a class="btn accent" href="#servicios">Ver Servicios</a>
-          <a class="btn" href="#contacto">Agendar</a>
+          </svg>
         </div>
-      </div>
-    </div>
-    <p class="lead">Portal que gira y se distorsiona. Fondo con estrellas quietas, niebla y viñeta — cozy ominoso.</p>
-  </div>
-</section>
-
-<!-- ===== SERVICIOS (cartas como las querías) ===== -->
-<section class="section" id="servicios" aria-label="Servicios">
-  <div class="center">
-    <h2>Lectura de Servicios</h2>
-    <p class="lead">Frente con símbolo, título y meta. Hover para leer la carta completa.</p>
-
-    <div class="grid">
-<div class="card" data-card>
-  <div class="card__inner">
-    <!-- Frente -->
-    <div class="card__face card__face--front">
-      <div class="card__corners card__corners"><span></span><span></span><span></span><span></span></div>
-      <div class="card__sigil">✶</div>
-
-      <!-- Ilustración -->
-      <div class="card__media no-crop">
-        <img src="espejista.png" alt="Carta La Espejista — Imagen & Asesoría" loading="lazy">
-      </div>
-
-      <!-- Texto frontal igual que antes -->
-      <div class="card__frontContent">
-        <div class="card__title">Imagen & Asesoría</div>
-        <div class="card__meta">Maquillaje · Styling · Story</div>
-      </div>
-    </div>
-
-    <!-- Reverso (flip) -->
-    <div class="card__face card__face--back">
-      <div>
-        <div class="card__title">Transformación</div>
-        <p>Te ayudamos a presentarte ante el mundo: look impecable, fotos y narrativa coherente.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-      <!-- Web & Producto -->
-      <div class="card">
-        <div class="card-inner">
-          <div class="card-face card-front">
-            <div class="card-corners"><span></span><span></span><span></span><span></span></div>
-            <div class="card-sigil">⌘</div>
-            <div class="card-title">Web & Producto</div>
-            <div class="card-meta">Landing · Portfolio · Interacción</div>
-          </div>
-          <div class="card-face card-back">
-            <div class="card-title">Invocar Sitio</div>
-            <p>Desde GitHub Pages a backend propio. Diseño con intención, rendimiento real.</p>
+        <div class="portal-edges"></div>
+        <div class="portal-text">
+          <div class="mono">DUAL INVOCATION</div>
+          <div class="portal-name" id="duo">Nombre A ✧ Nombre B</div>
+          <div class="mono">BRAND · WEB · MOTION · MAKEUP</div>
+          <div style="margin-top:16px">
+            <a class="btn accent" href="#servicios">Ver Servicios</a>
+            <a class="btn" href="#contacto">Agendar</a>
           </div>
         </div>
       </div>
-
-      <!-- Docs & CV -->
-      <div class="card">
-        <div class="card-inner">
-          <div class="card-face card-front">
-            <div class="card-corners"><span></span><span></span><span></span><span></span></div>
-            <div class="card-sigil">¶</div>
-            <div class="card-title">Docs & CV</div>
-            <div class="card-meta">Currículums · Tarjetas Digitales</div>
-          </div>
-          <div class="card-face card-back">
-            <div class="card-title">Claridad</div>
-            <p>Texto preciso + diseño que te consigue llamadas. Entrega lista para enviar.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Software a Medida -->
-      <div class="card">
-        <div class="card-inner">
-          <div class="card-face card-front">
-            <div class="card-corners"><span></span><span></span><span></span><span></span></div>
-            <div class="card-sigil">∞</div>
-            <div class="card-title">Software a Medida</div>
-            <div class="card-meta">Automatizaciones · Integraciones</div>
-          </div>
-          <div class="card-face card-back">
-            <div class="card-title">Herramientas</div>
-            <p>Dashboards, integraciones y sistemas livianos que potencian tu operación.</p>
-          </div>
-        </div>
-      </div>
+      <p class="lead">Portal que gira y se distorsiona. Fondo con estrellas, niebla y viñeta — cozy ominoso.</p>
     </div>
+  </section>
 
-    <p class="lead" style="margin-top:22px">
-      Contacto: <span style="font-family:'DM Mono',monospace;letter-spacing:.12em">dudaestudio777@gmail.com</span>
-    </p>
-  </div>
-</section>
+  <!-- SERVICIOS -->
+  <section class="section" id="servicios" aria-label="Servicios">
+    <div class="center">
+      <h2>Lectura de Servicios</h2>
+      <p class="lead">Frente con símbolo, título y meta. Hover o toque para voltear la carta.</p>
 
-<!-- ===== CONTACTO ===== -->
-<section class="section" id="contacto" aria-label="Contacto">
-  <div class="center">
-    <h2>Abra el círculo</h2>
-    <p class="lead">Escríbenos y trazamos la primera runa.</p>
-    <a class="btn accent" href="mailto:dudaestudio777@gmail.com">Enviar correo</a>
-  </div>
-</section>
+      <div class="cards">
+        <!-- Carta 1: Imagen & Asesoría (con ilustración) -->
+        <article class="card" data-card>
+          <div class="card__inner">
+            <!-- Frente -->
+            <div class="card__face card__face--front">
+              <div class="card__corners"><span></span><span></span><span></span><span></span></div>
+              <div class="card__sigil">✶</div>
 
-<footer>© DUDA Estudio — portales, estrellas y cartas.</footer>
+              <!-- Ilustración con foco alto para no cortar la cara -->
+              <figure class="card__media focus-head">
+                <img src="assets/cartas/la-espejista.png" alt="Carta La Espejista — Imagen & Asesoría" loading="lazy">
+              </figure>
 
-<!-- ===== JS: alterna nombres + cometas ===== -->
-<script>
-/* alterna nombres */
-const duo = document.getElementById('duo');
-const names = ["Nombre A ✧ Nombre B","DUDA Estudio"]; let i=0;
-setInterval(()=>{ i=(i+1)%names.length; duo.textContent = names[i]; }, 2600);
+              <!-- Texto frontal -->
+              <div class="card__frontContent">
+                <div class="card__title">Imagen & Asesoría</div>
+                <div class="card__meta">Maquillaje · Styling · Story</div>
+              </div>
+            </div>
 
-/* cometas ligeros */
-const cv=document.getElementById('comets'),ctx=cv.getContext('2d');let W,H,comets=[];
-const resize=()=>{W=cv.width=innerWidth;H=cv.height=innerHeight};addEventListener('resize',resize);resize();
-function spawn(){const y=Math.random()*H*0.6+H*0.1;comets.push({x:-50,y,vx:4+Math.random()*3,hue:Math.random()<.5?220:20});}
-setInterval(spawn,1800);
-(function tick(){ctx.clearRect(0,0,W,H);comets.forEach(c=>{c.x+=c.vx;const grd=ctx.createLinearGradient(c.x-80,c.y,c.x+10,c.y);const col=c.hue===220?'rgba(41,111,197,':'rgba(243,85,24,';grd.addColorStop(0,col+'0)');grd.addColorStop(1,col+'0.85)');ctx.strokeStyle=grd;ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(c.x-80,c.y);ctx.lineTo(c.x+10,c.y);ctx.stroke();ctx.fillStyle=col+'0.9)';ctx.beginPath();ctx.arc(c.x+10,c.y,1.8,0,Math.PI*2);ctx.fill();});comets=comets.filter(c=>c.x<W+100);requestAnimationFrame(tick)})();
-</script>
+            <!-- Reverso -->
+            <div class="card__face card__face--back">
+              <div>
+                <div class="card__title">Transformación</div>
+                <p>Te ayudamos a presentarte ante el mundo: look impecable, fotos y narrativa coherente.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Carta 2: Web & Producto -->
+        <article class="card" data-card>
+          <div class="card__inner">
+            <div class="card__face card__face--front">
+              <div class="card__corners"><span></span><span></span><span></span><span></span></div>
+              <div class="card__sigil">⌘</div>
+              <div class="card__frontContent only-text">
+                <div class="card__title">Web & Producto</div>
+                <div class="card__meta">Landing · Portfolio · Interacción</div>
+              </div>
+            </div>
+            <div class="card__face card__face--back">
+              <div>
+                <div class="card__title">Invocar Sitio</div>
+                <p>Desde GitHub Pages a backend propio. Diseño con intención, rendimiento real.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Carta 3: Docs & CV -->
+        <article class="card" data-card>
+          <div class="card__inner">
+            <div class="card__face card__face--front">
+              <div class="card__corners"><span></span><span></span><span></span><span></span></div>
+              <div class="card__sigil">¶</div>
+              <div class="card__frontContent only-text">
+                <div class="card__title">Docs & CV</div>
+                <div class="card__meta">Currículums · Tarjetas Digitales</div>
+              </div>
+            </div>
+            <div class="card__face card__face--back">
+              <div>
+                <div class="card__title">Claridad</div>
+                <p>Texto preciso + diseño que te consigue llamadas. Entrega lista para enviar.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Carta 4: Software a Medida -->
+        <article class="card" data-card>
+          <div class="card__inner">
+            <div class="card__face card__face--front">
+              <div class="card__corners"><span></span><span></span><span></span><span></span></div>
+              <div class="card__sigil">∞</div>
+              <div class="card__frontContent only-text">
+                <div class="card__title">Software a Medida</div>
+                <div class="card__meta">Automatizaciones · Integraciones</div>
+              </div>
+            </div>
+            <div class="card__face card__face--back">
+              <div>
+                <div class="card__title">Herramientas</div>
+                <p>Dashboards, integraciones y sistemas livianos que potencian tu operación.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <p class="lead" style="margin-top:22px">
+        Contacto: <span style="font-family:'DM Mono',monospace;letter-spacing:.12em">dudaestudio777@gmail.com</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="section" id="contacto" aria-label="Contacto">
+    <div class="center">
+      <h2>Abra el círculo</h2>
+      <p class="lead">Escríbenos y trazamos la primera runa.</p>
+      <a class="btn accent" href="mailto:dudaestudio777@gmail.com">Enviar correo</a>
+    </div>
+  </section>
+
+  <footer>© DUDA Estudio — portales, estrellas y cartas.</footer>
+
+  <!-- JS: alterna nombres + flip por tap/click + cometas -->
+  <script>
+    // alterna nombres del hero
+    const duo = document.getElementById('duo');
+    const names = ["Nombre A ✧ Nombre B","DUDA Estudio"]; let i=0;
+    setInterval(()=>{ i=(i+1)%names.length; duo.textContent = names[i]; }, 2600);
+
+    // flip por tap/click
+    document.querySelectorAll('[data-card]').forEach(card => {
+      card.addEventListener('click', (e) => {
+        const insideLink = e.target.closest('a,button');
+        if(insideLink) return;
+        card.classList.toggle('is-flipped');
+      }, {passive:true});
+    });
+    // cerrar cartas si haces click fuera
+    document.addEventListener('click', (e)=>{
+      document.querySelectorAll('.card.is-flipped').forEach(c=>{
+        if(!c.contains(e.target)) c.classList.remove('is-flipped');
+      });
+    });
+
+    // cometas ligeros
+    const cv=document.getElementById('comets'),ctx=cv.getContext('2d');let W,H,comets=[];
+    const resize=()=>{W=cv.width=innerWidth;H=cv.height=innerHeight};addEventListener('resize',resize);resize();
+    function spawn(){const y=Math.random()*H*0.6+H*0.1;comets.push({x:-50,y,vx:4+Math.random()*3,hue:Math.random()<.5?220:20});}
+    setInterval(spawn,1800);
+    (function tick(){ctx.clearRect(0,0,W,H);comets.forEach(c=>{c.x+=c.vx;
+      const grd=ctx.createLinearGradient(c.x-80,c.y,c.x+10,c.y);
+      const col=c.hue===220?'rgba(41,111,197,':'rgba(243,85,24,';
+      grd.addColorStop(0,col+'0)'); grd.addColorStop(1,col+'0.85)');
+      ctx.strokeStyle=grd; ctx.lineWidth=2;
+      ctx.beginPath(); ctx.moveTo(c.x-80,c.y); ctx.lineTo(c.x+10,c.y); ctx.stroke();
+      ctx.fillStyle=col+'0.9)'; ctx.beginPath(); ctx.arc(c.x+10,c.y,1.8,0,Math.PI*2); ctx.fill();
+    }); comets=comets.filter(c=>c.x<W+100); requestAnimationFrame(tick)})();
+  </script>
 </body>
 </html>
