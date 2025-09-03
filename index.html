@@ -1,15 +1,18 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>DUDA Estudio — Portal</title>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cartas | Portal</title>
+
+  <!-- Fuentes -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Fondo inmersivo -->
-  <canvas id="comets"></canvas>
+  <!-- Capas de fondo -->
   <div class="bg"></div>
   <div class="stars"></div>
   <div class="fog"></div>
@@ -17,211 +20,141 @@
 
   <!-- Header -->
   <header>
-    <div class="brand">DUDA ✦ Estudio</div>
+    <div class="brand">OLIVER • PORTAL</div>
     <nav class="nav">
-      <a href="#servicios">Servicios</a>
+      <a href="#home">Inicio</a>
+      <a href="#proyectos">Proyectos</a>
       <a href="#contacto">Contacto</a>
     </nav>
   </header>
 
-  <!-- HERO / PORTAL -->
-  <section class="section" id="inicio" aria-label="Inicio">
-    <div class="center">
-      <div class="portal-wrap">
-        <div class="portal-frame">
-          <svg viewBox="0 0 500 500" width="100%" height="100%" aria-hidden="true">
-            <defs>
-              <filter id="warp">
-                <feTurbulence type="fractalNoise" baseFrequency="0.008" numOctaves="2" seed="7" result="n">
-                  <animate attributeName="baseFrequency" dur="8s" values="0.012;0.008;0.010;0.012" repeatCount="indefinite"/>
-                </feTurbulence>
-                <feDisplacementMap in="SourceGraphic" in2="n" scale="22"/>
-              </filter>
-              <radialGradient id="gate" cx="50%" cy="50%" r="50%">
-                <stop offset="0%"  stop-color="rgba(255,255,255,.18)"/>
-                <stop offset="58%" stop-color="rgba(41,111,197,.45)"/>
-                <stop offset="78%" stop-color="rgba(243,85,24,.45)"/>
-                <stop offset="100%" stop-color="rgba(36,18,73,0)"/>
-              </radialGradient>
-            </defs>
-            <g filter="url(#warp)" transform-origin="250 250">
-              <circle cx="250" cy="250" r="180" fill="url(#gate)">
-                <animateTransform attributeName="transform" type="rotate" from="0 250 250" to="360 250 250" dur="26s" repeatCount="indefinite"/>
-              </circle>
-              <circle cx="250" cy="250" r="148" fill="none" stroke="rgba(58,88,168,.45)" stroke-width="1.2">
-                <animateTransform attributeName="transform" type="rotate" from="360 250 250" to="0 250 250" dur="18s" repeatCount="indefinite"/>
-              </circle>
-              <circle cx="250" cy="250" r="210" fill="none" stroke="rgba(243,85,24,.35)" stroke-width="1.2">
-                <animateTransform attributeName="transform" type="rotate" from="0 250 250" to="-360 250 250" dur="36s" repeatCount="indefinite"/>
-              </circle>
-            </g>
-          </svg>
-        </div>
-        <div class="portal-edges"></div>
-        <div class="portal-text">
-          <div class="mono">DUAL INVOCATION</div>
-          <div class="portal-name" id="duo">Nombre A ✧ Nombre B</div>
-          <div class="mono">BRAND · WEB · MOTION · MAKEUP</div>
-          <div style="margin-top:16px">
-            <a class="btn accent" href="#servicios">Ver Servicios</a>
-            <a class="btn" href="#contacto">Agendar</a>
-          </div>
+  <!-- Sección principal -->
+  <main>
+    <section id="home" class="section center">
+      <div>
+        <h1>Portal creativo</h1>
+        <p class="lead">Flip en hover (desktop) o tap/click (móvil). Imágenes centradas y con recorte seguro. Estrellas fijas en todo el scroll.</p>
+        <div>
+          <button class="btn accent">Explorar</button>
+          <button class="btn">Contacto</button>
         </div>
       </div>
-      <p class="lead">Portal que gira y se distorsiona. Fondo con estrellas, niebla y viñeta — cozy ominoso.</p>
-    </div>
-  </section>
 
-  <!-- SERVICIOS -->
-  <section class="section" id="servicios" aria-label="Servicios">
-    <div class="center">
-      <h2>Lectura de Servicios</h2>
-      <p class="lead">Frente con símbolo, título y meta. Hover o toque para voltear la carta.</p>
-
-      <div class="cards">
-        <!-- Carta 1: Imagen & Asesoría (con ilustración) -->
-        <article class="card" data-card>
+      <!-- Grid de cartas -->
+      <div class="cards" style="margin-top:28px">
+        <!-- Carta con imagen (frente) + texto -->
+        <article class="card" data-tap>
           <div class="card__inner">
             <!-- Frente -->
             <div class="card__face card__face--front">
-              <div class="card__corners"><span></span><span></span><span></span><span></span></div>
-              <div class="card__sigil">✶</div>
+              <div class="card__sigil">PORTAL • S1</div>
+              <div class="card__corners">
+                <span></span><span></span><span></span><span></span>
+              </div>
 
-              <!-- Ilustración con foco alto para no cortar la cara -->
-              <figure class="card__media focus-head">
-                <img src="espejista.png" alt="Carta La Espejista — Imagen & Asesoría" loading="lazy">
-              </figure>
+              <div class="card__media">
+                <!-- Reemplaza por tu imagen -->
+                <img src="https://images.unsplash.com/photo-1511765224389-37f0e77cf0eb?q=80&w=1600&auto=format&fit=crop" alt="Demo visual" />
+              </div>
 
-              <!-- Texto frontal -->
               <div class="card__frontContent">
-                <div class="card__title">Imagen & Asesoría</div>
-                <div class="card__meta">Maquillaje · Styling · Story</div>
+                <div class="card__title">Carta con imagen</div>
+                <div class="card__meta">Flip para ver el reverso</div>
               </div>
             </div>
 
             <!-- Reverso -->
             <div class="card__face card__face--back">
-              <div>
-                <div class="card__title">Transformación</div>
-                <p>Te ayudamos a presentarte ante el mundo: look impecable, fotos y narrativa coherente.</p>
+              <div class="only-text">
+                <div>
+                  <h3 style="margin:0 0 8px">Detalle</h3>
+                  <p style="margin:0;color:var(--muted)">Aquí va una descripción corta del proyecto o cualquier copy que quieras mostrar en el reverso.</p>
+                </div>
               </div>
             </div>
           </div>
         </article>
 
-        <!-- Carta 2: Web & Producto -->
-        <article class="card" data-card>
+        <!-- Carta solo texto -->
+        <article class="card" data-tap>
           <div class="card__inner">
             <div class="card__face card__face--front">
-              <div class="card__corners"><span></span><span></span><span></span><span></span></div>
-              <div class="card__sigil">⌘</div>
-              <div class="card__frontContent only-text">
-                <div class="card__title">Web & Producto</div>
-                <div class="card__meta">Landing · Portfolio · Interacción</div>
+              <div class="only-text">
+                <div>
+                  <div class="card__title">Solo texto</div>
+                  <div class="card__meta">Hover/Tap para girar</div>
+                </div>
               </div>
             </div>
             <div class="card__face card__face--back">
-              <div>
-                <div class="card__title">Invocar Sitio</div>
-                <p>Desde GitHub Pages a backend propio. Diseño con intención, rendimiento real.</p>
+              <div class="only-text">
+                <p style="margin:0;color:var(--muted)">Contenido del reverso. Podrías poner links, bullets o CTA.</p>
               </div>
             </div>
           </div>
         </article>
 
-        <!-- Carta 3: Docs & CV -->
-        <article class="card" data-card>
+        <!-- Otra carta demo -->
+        <article class="card" data-tap>
           <div class="card__inner">
             <div class="card__face card__face--front">
-              <div class="card__corners"><span></span><span></span><span></span><span></span></div>
-              <div class="card__sigil">¶</div>
-              <div class="card__frontContent only-text">
-                <div class="card__title">Docs & CV</div>
-                <div class="card__meta">Currículums · Tarjetas Digitales</div>
+              <div class="only-text">
+                <div>
+                  <div class="card__title">Proyecto X</div>
+                  <div class="card__meta">UI • Backend • Deploy</div>
+                </div>
               </div>
             </div>
             <div class="card__face card__face--back">
-              <div>
-                <div class="card__title">Claridad</div>
-                <p>Texto preciso + diseño que te consigue llamadas. Entrega lista para enviar.</p>
+              <div class="only-text">
+                <p style="margin:0;color:var(--muted)">Stack, retos y resultados clave.</p>
               </div>
             </div>
           </div>
         </article>
 
-        <!-- Carta 4: Software a Medida -->
-        <article class="card" data-card>
+        <!-- Si quieres una carta sin recorte en la imagen, agrega .no-crop a card__media -->
+        <article class="card" data-tap>
           <div class="card__inner">
             <div class="card__face card__face--front">
-              <div class="card__corners"><span></span><span></span><span></span><span></span></div>
-              <div class="card__sigil">∞</div>
-              <div class="card__frontContent only-text">
-                <div class="card__title">Software a Medida</div>
-                <div class="card__meta">Automatizaciones · Integraciones</div>
+              <div class="card__media no-crop">
+                <img src="https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?q=80&w=1600&auto=format&fit=crop" alt="Imagen sin recorte" />
+              </div>
+              <div class="card__frontContent">
+                <div class="card__title">No recortar</div>
+                <div class="card__meta">Usa .no-crop si necesitas ver todo</div>
               </div>
             </div>
             <div class="card__face card__face--back">
-              <div>
-                <div class="card__title">Herramientas</div>
-                <p>Dashboards, integraciones y sistemas livianos que potencian tu operación.</p>
+              <div class="only-text">
+                <p style="margin:0;color:var(--muted)">Muestra completa (object-fit: contain).</p>
               </div>
             </div>
           </div>
         </article>
       </div>
+    </section>
+  </main>
 
-      <p class="lead" style="margin-top:22px">
-        Contacto: <span style="font-family:'DM Mono',monospace;letter-spacing:.12em">dudaestudio777@gmail.com</span>
-      </p>
-    </div>
-  </section>
-
-  <!-- CONTACTO -->
-  <section class="section" id="contacto" aria-label="Contacto">
-    <div class="center">
-      <h2>Abra el círculo</h2>
-      <p class="lead">Escríbenos y trazamos la primera runa.</p>
-      <a class="btn accent" href="mailto:dudaestudio777@gmail.com">Enviar correo</a>
-    </div>
-  </section>
-
-  <footer>© DUDA Estudio — portales, estrellas y cartas.</footer>
-
-  <!-- JS: alterna nombres + flip por tap/click + cometas -->
   <script>
-    // alterna nombres del hero
-    const duo = document.getElementById('duo');
-    const names = ["Nombre A ✧ Nombre B","DUDA Estudio"]; let i=0;
-    setInterval(()=>{ i=(i+1)%names.length; duo.textContent = names[i]; }, 2600);
+    // Flip por tap/click en móvil y también usable en desktop
+    document.querySelectorAll('.card[data-tap]').forEach(card => {
+      const inner = card.querySelector('.card__inner');
+      const toggle = () => card.classList.toggle('is-flipped');
 
-    // flip por tap/click
-    document.querySelectorAll('[data-card]').forEach(card => {
+      // Tap/click
       card.addEventListener('click', (e) => {
-        const insideLink = e.target.closest('a,button');
-        if(insideLink) return;
-        card.classList.toggle('is-flipped');
-      }, {passive:true});
-    });
-    // cerrar cartas si haces click fuera
-    document.addEventListener('click', (e)=>{
-      document.querySelectorAll('.card.is-flipped').forEach(c=>{
-        if(!c.contains(e.target)) c.classList.remove('is-flipped');
+        // Evita pelearse con el hover en desktop: sólo si el click fue dentro de la carta
+        if (e.target.closest('.card')) toggle();
+      }, { passive: true });
+
+      // Tecla ESC para “des-flip” si quedaste del otro lado
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && card.classList.contains('is-flipped')) {
+          card.classList.remove('is-flipped');
+        }
       });
     });
-
-    // cometas ligeros
-    const cv=document.getElementById('comets'),ctx=cv.getContext('2d');let W,H,comets=[];
-    const resize=()=>{W=cv.width=innerWidth;H=cv.height=innerHeight};addEventListener('resize',resize);resize();
-    function spawn(){const y=Math.random()*H*0.6+H*0.1;comets.push({x:-50,y,vx:4+Math.random()*3,hue:Math.random()<.5?220:20});}
-    setInterval(spawn,1800);
-    (function tick(){ctx.clearRect(0,0,W,H);comets.forEach(c=>{c.x+=c.vx;
-      const grd=ctx.createLinearGradient(c.x-80,c.y,c.x+10,c.y);
-      const col=c.hue===220?'rgba(41,111,197,':'rgba(243,85,24,';
-      grd.addColorStop(0,col+'0)'); grd.addColorStop(1,col+'0.85)');
-      ctx.strokeStyle=grd; ctx.lineWidth=2;
-      ctx.beginPath(); ctx.moveTo(c.x-80,c.y); ctx.lineTo(c.x+10,c.y); ctx.stroke();
-      ctx.fillStyle=col+'0.9)'; ctx.beginPath(); ctx.arc(c.x+10,c.y,1.8,0,Math.PI*2); ctx.fill();
-    }); comets=comets.filter(c=>c.x<W+100); requestAnimationFrame(tick)})();
   </script>
 </body>
 </html>
