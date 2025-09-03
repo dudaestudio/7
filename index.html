@@ -244,37 +244,34 @@ footer{ padding:40px 20px; text-align:center; color:var(--muted) }
     <p class="lead">Frente con símbolo, título y meta. Hover para leer la carta completa.</p>
 
     <div class="grid">
-<!-- Imagen & Asesoría (con ilustración) -->
-<div class="card">
-  <div class="card-inner">
+<div class="card" data-card>
+  <div class="card__inner">
     <!-- Frente -->
-    <div class="card-face card-front has-illust">
-      <!-- esquinas y foil se mantienen por herencia -->
-      <div class="card-corners"><span></span><span></span><span></span><span></span></div>
+    <div class="card__face card__face--front">
+      <div class="card__corners card__corners"><span></span><span></span><span></span><span></span></div>
+      <div class="card__sigil">✶</div>
 
-      <!-- símbolo tenue sobre la ilustración -->
-      <div class="card-sigil">✶</div>
-
-      <!-- ilustración -->
-      <div class="card-illustration">
+      <!-- Ilustración -->
+      <div class="card__media top">
         <img src="espejista.png" alt="Carta La Espejista — Imagen & Asesoría" loading="lazy">
       </div>
 
-      <!-- texto frontal abajo -->
-      <div class="front-content">
-        <div class="card-title">Imagen & Asesoría</div>
-        <div class="card-meta">Maquillaje · Styling · Story</div>
+      <!-- Texto frontal igual que antes -->
+      <div class="card__frontContent">
+        <div class="card__title">Imagen & Asesoría</div>
+        <div class="card__meta">Maquillaje · Styling · Story</div>
       </div>
     </div>
 
-    <!-- Reverso (flip igual que antes) -->
-    <div class="card-face card-back">
-      <div class="card-title">Transformación</div>
-      <p>Te ayudamos a presentarte ante el mundo: look impecable, fotos y narrativa coherente.</p>
+    <!-- Reverso (flip) -->
+    <div class="card__face card__face--back">
+      <div>
+        <div class="card__title">Transformación</div>
+        <p>Te ayudamos a presentarte ante el mundo: look impecable, fotos y narrativa coherente.</p>
+      </div>
     </div>
   </div>
 </div>
-
 
       <!-- Web & Producto -->
       <div class="card">
