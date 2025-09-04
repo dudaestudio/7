@@ -6,16 +6,16 @@
   <title>Duda Estudio | Portal Creativo</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- Capas de fondo -->
   <div class="bg"></div>
   <div class="stars"></div>
   <div class="fog"></div>
   <div class="vignette"></div>
 
-  <header>
+  <header class="site-header">
     <div class="brand">OLIVER • JOANA</div>
     <nav class="nav">
       <a href="#home">Inicio</a>
@@ -25,104 +25,113 @@
   </header>
 
   <main>
-    <section id="home" class="section center">
-      <div>
-        <h1>Duda Estudio: Portal de Transformación</h1>
-        <p class="lead">Combinando talento visual y tecnológico para potenciar tu identidad y proyectos.</p>
-        <div>
-          <button class="btn accent">Explorar</button>
-          <button class="btn">Contacto</button>
-        </div>
+    <!-- HERO -->
+    <section id="home" class="section hero">
+      <h1 class="title">Duda Estudio: Portal de Transformación</h1>
+      <p class="lead">Combinando talento visual y tecnológico para potenciar tu identidad y proyectos.</p>
+      <div class="cta">
+        <button class="btn accent">Explorar</button>
+        <button class="btn">Contacto</button>
       </div>
+    </section>
 
-      <div id="servicios" class="cards" style="margin-top:28px">
+    <!-- CARTAS -->
+    <section id="servicios" class="section cards-section">
+      <h2 class="sr-only">Servicios</h2>
 
-        <article class="card" data-tap>
-          <div class="card__inner">
-            <div class="card__face card__face--front">
-              <div class="card__sigil">LA ESPEJISTA</div>
-              <div class="card__corners">
-                <span></span><span></span><span></span><span></span>
+      <!-- Tapete / mesa -->
+      <div class="tarot-table">
+        <div class="cards" aria-label="Cartas de servicios">
+          <!-- Carta 1 -->
+          <article class="card" data-tap>
+            <div class="card__inner">
+              <div class="card__face card__face--front">
+                <div class="card__sigil">LA ESPEJISTA</div>
+                <div class="card__corners">
+                  <span></span><span></span><span></span><span></span>
+                </div>
+
+                <div class="card__media no-crop">
+                  <img src="espejista.png" alt="La Espejista: Identidad Visual y Transformación Personal" />
+                </div>
+
+                <div class="card__frontContent">
+                  <div class="card__title">Identidad Visual</div>
+                  <div class="card__meta">Tu reflejo exterior</div>
+                </div>
               </div>
-              <div class="card__media no-crop">
-                <img src="espejista.png" alt="La Espejista: Identidad Visual y Transformación Personal" />
-              </div>
 
-              <div class="card__frontContent">
-                <div class="card__title">Identidad Visual</div>
-                <div class="card__meta">Tu reflejo exterior</div>
-              </div>
-            </div>
-
-            <div class="card__face card__face--back">
-              <div class="only-text">
-                <div>
+              <div class="card__face card__face--back">
+                <div class="only-text">
                   <h3 style="margin:0 0 8px">Asesoría de CV y Maquillaje</h3>
                   <p style="margin:0;color:var(--muted)">Servicios para pulir tu imagen profesional y personal, revelando tu mejor versión.</p>
                 </div>
               </div>
             </div>
-          </div>
-        </article>
+          </article>
 
-        <article class="card" data-tap>
-          <div class="card__inner">
-            <div class="card__face card__face--front">
-              <div class="only-text">
-                <div>
-                  <div class="card__title">Soluciones Digitales</div>
-                  <div class="card__meta">Conexiones a medida</div>
+          <!-- Carta 2 -->
+<article class="card" data-tap>
+  <div class="card__inner">
+    <!-- Frente -->
+    <div class="card__face card__face--front">
+      <div class="card__media no-crop">
+        <img src="software.png" alt="El Software: Soluciones Digitales" />
+      </div>
+      <div class="card__frontContent">
+        <div class="card__title">Soluciones Digitales</div>
+        <div class="card__meta">Conexiones a medida</div>
+      </div>
+    </div>
+
+    <!-- Reverso -->
+    <div class="card__face card__face--back">
+      <div class="only-text">
+        <h3 style="margin:0 0 8px">Web y APIs</h3>
+        <p style="margin:0;color:var(--muted)">
+          Desarrollo de páginas estáticas, blogs e integraciones de APIs y SaaS.
+        </p>
+      </div>
+    </div>
+  </div>
+</article>
+
+          <!-- Carta 3 -->
+          <article class="card" data-tap>
+            <div class="card__inner">
+              <div class="card__face card__face--front">
+                <div class="only-text">
+                  <div>
+                    <div class="card__title">Proyectos Personalizados</div>
+                    <div class="card__meta">Retos a nuestra medida</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card__face card__face--back">
+                <div class="only-text">
+                  <p style="margin:0;color:var(--muted)">Cuéntanos tu idea y construimos un plan desde la conceptualización hasta la implementación.</p>
                 </div>
               </div>
             </div>
-            <div class="card__face card__face--back">
-              <div class="only-text">
-                <h3 style="margin:0 0 8px">Web y APIs</h3>
-                <p style="margin:0;color:var(--muted)">Desarrollo de páginas web estáticas, blogs, e integraciones de APIs y SaaS.</p>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <article class="card" data-tap>
-          <div class="card__inner">
-            <div class="card__face card__face--front">
-              <div class="only-text">
-                <div>
-                  <div class="card__title">Proyectos Personalizados</div>
-                  <div class="card__meta">Retos a nuestra medida</div>
-                </div>
-              </div>
-            </div>
-            <div class="card__face card__face--back">
-              <div class="only-text">
-                <p style="margin:0;color:var(--muted)">Cuéntanos tu idea y construimos un plan para hacerla realidad, desde la conceptualización hasta la implementación.</p>
-              </div>
-            </div>
-          </div>
-        </article>
+          </article>
+        </div>
       </div>
     </section>
   </main>
 
   <script>
-    // Flip por tap/click en móvil y también usable en desktop
-    document.querySelectorAll('.card[data-tap]').forEach(card => {
-      const inner = card.querySelector('.card__inner');
-      const toggle = () => card.classList.toggle('is-flipped');
-
-      // Tap/click
-      card.addEventListener('click', (e) => {
-        // Evita pelearse con el hover en desktop: sólo si el click fue dentro de la carta
-        if (e.target.closest('.card')) toggle();
-      }, { passive: true });
-
-      // Tecla ESC para “des-flip” si quedaste del otro lado
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && card.classList.contains('is-flipped')) {
-          card.classList.remove('is-flipped');
-        }
+    // Flip por tap/click en pantallas sin hover; en desktop también funciona por hover (CSS)
+    const prefersHover = matchMedia('(hover:hover)').matches;
+    if (!prefersHover) {
+      document.querySelectorAll('.card[data-tap]').forEach(card => {
+        card.addEventListener('click', () => card.classList.toggle('is-flipped'), { passive: true });
       });
+    }
+    // ESC para regresar si quedó volteada
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.card.is-flipped').forEach(c => c.classList.remove('is-flipped'));
+      }
     });
   </script>
 </body>
