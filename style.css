@@ -38,22 +38,22 @@ body{
   background-attachment:fixed;      /* Mantiene el patrón durante el scroll */
   background-size:420px 420px;      /* Patrón repetible */
 }
-/* Tres capas con densidades distintas */
+/* Tres capas con densidades distintas - Aumentada la opacidad de las estrellas */
 .stars{
   background-image:
-    radial-gradient(1.2px 1.2px at 20% 30%, rgba(255,255,255,.7), transparent 42%),
-    radial-gradient(1.2px 1.2px at 80% 20%, rgba(255,255,255,.6), transparent 42%),
-    radial-gradient(1px 1px at 35% 85%, rgba(255,255,255,.55), transparent 40%);
+    radial-gradient(1.2px 1.2px at 20% 30%, rgba(255,255,255,.9), transparent 42%),
+    radial-gradient(1.2px 1.2px at 80% 20%, rgba(255,255,255,.8), transparent 42%),
+    radial-gradient(1px 1px at 35% 85%, rgba(255,255,255,.7), transparent 40%);
 }
 .stars::before{
   background-image:
-    radial-gradient(1.6px 1.6px at 60% 70%, rgba(170,200,255,.65), transparent 45%),
-    radial-gradient(1.4px 1.4px at 15% 60%, rgba(200,170,255,.55), transparent 45%);
+    radial-gradient(1.6px 1.6px at 60% 70%, rgba(170,200,255,.8), transparent 45%),
+    radial-gradient(1.4px 1.4px at 15% 60%, rgba(200,170,255,.7), transparent 45%);
 }
 .stars::after{
   background-image:
-    radial-gradient(2px 2px at 45% 25%, rgba(255,255,255,.75), transparent 45%),
-    radial-gradient(1.8px 1.8px at 70% 82%, rgba(170,210,255,.55), transparent 45%);
+    radial-gradient(2px 2px at 45% 25%, rgba(255,255,255,.9), transparent 45%),
+    radial-gradient(1.8px 1.8px at 70% 82%, rgba(170,210,255,.7), transparent 45%);
 }
 
 .fog{
@@ -112,15 +112,25 @@ h1{
 
 /* ===== estilos de cartas ===== */
 .cards{
-  display:grid; gap:32px;
-  grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
-  perspective:1000px;
+  /* Nuevo diseño Flexbox con efecto de mesa de lectura */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 32px;
+  perspective: 1500px;
+  transform: rotateX(15deg);
+  transform-origin: center bottom;
+  padding: 24px 0;
 }
 .card{
   min-height:400px;
   position:relative;
   cursor:pointer;
   touch-action:manipulation;
+  /* Ajuste para que se vea bien en la "mesa" */
+  width: min(90vw, 320px);
 }
 .card__inner{
   position:relative; width:100%; height:100%;
@@ -211,4 +221,13 @@ h1{
 }
 .card:hover .card__face--front::after{
   transform:translateX(100%);
+}
+
+/* ===== Responsividad: deshace el efecto 3D en móviles ===== */
+@media (max-width: 768px) {
+  .cards {
+    transform: none; /* Quita la rotación 3D para móviles */
+    flex-direction: column; /* Apila las cartas verticalmente */
+    align-items: center;
+  }
 }
