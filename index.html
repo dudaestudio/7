@@ -3,131 +3,100 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Cartas | Portal</title>
+  <title>Duda Estudio | Portal Creativo</title>
 
-  <!-- Fuentes -->
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 
-  <!-- CSS -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Capas de fondo -->
   <div class="bg"></div>
   <div class="stars"></div>
   <div class="fog"></div>
   <div class="vignette"></div>
 
-  <!-- Header -->
   <header>
-    <div class="brand">OLIVER • PORTAL</div>
+    <div class="brand">OLIVER • JOANA</div>
     <nav class="nav">
       <a href="#home">Inicio</a>
-      <a href="#proyectos">Proyectos</a>
+      <a href="#servicios">Servicios</a>
       <a href="#contacto">Contacto</a>
     </nav>
   </header>
 
-  <!-- Sección principal -->
   <main>
     <section id="home" class="section center">
       <div>
-        <h1>Portal creativo</h1>
-        <p class="lead">Flip en hover (desktop) o tap/click (móvil). Imágenes centradas y con recorte seguro. Estrellas fijas en todo el scroll.</p>
+        <h1>Duda Estudio: Portal de Transformación</h1>
+        <p class="lead">Combinando talento visual y tecnológico para potenciar tu identidad y proyectos.</p>
         <div>
           <button class="btn accent">Explorar</button>
           <button class="btn">Contacto</button>
         </div>
       </div>
 
-      <!-- Grid de cartas -->
-      <div class="cards" style="margin-top:28px">
-        <!-- Carta con imagen (frente) + texto -->
+      <div id="servicios" class="cards" style="margin-top:28px">
+
         <article class="card" data-tap>
           <div class="card__inner">
-            <!-- Frente -->
             <div class="card__face card__face--front">
-              <div class="card__sigil">PORTAL • S1</div>
+              <div class="card__sigil">LA ESPEJISTA</div>
               <div class="card__corners">
                 <span></span><span></span><span></span><span></span>
               </div>
-
-              <div class="card__media">
-                <!-- Reemplaza por tu imagen -->
-                <img src="https://images.unsplash.com/photo-1511765224389-37f0e77cf0eb?q=80&w=1600&auto=format&fit=crop" alt="Demo visual" />
-              </div>
-
-              <div class="card__frontContent">
-                <div class="card__title">Carta con imagen</div>
-                <div class="card__meta">Flip para ver el reverso</div>
-              </div>
-            </div>
-
-            <!-- Reverso -->
-            <div class="card__face card__face--back">
-              <div class="only-text">
-                <div>
-                  <h3 style="margin:0 0 8px">Detalle</h3>
-                  <p style="margin:0;color:var(--muted)">Aquí va una descripción corta del proyecto o cualquier copy que quieras mostrar en el reverso.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <!-- Carta solo texto -->
-        <article class="card" data-tap>
-          <div class="card__inner">
-            <div class="card__face card__face--front">
-              <div class="only-text">
-                <div>
-                  <div class="card__title">Solo texto</div>
-                  <div class="card__meta">Hover/Tap para girar</div>
-                </div>
-              </div>
-            </div>
-            <div class="card__face card__face--back">
-              <div class="only-text">
-                <p style="margin:0;color:var(--muted)">Contenido del reverso. Podrías poner links, bullets o CTA.</p>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <!-- Otra carta demo -->
-        <article class="card" data-tap>
-          <div class="card__inner">
-            <div class="card__face card__face--front">
-              <div class="only-text">
-                <div>
-                  <div class="card__title">Proyecto X</div>
-                  <div class="card__meta">UI • Backend • Deploy</div>
-                </div>
-              </div>
-            </div>
-            <div class="card__face card__face--back">
-              <div class="only-text">
-                <p style="margin:0;color:var(--muted)">Stack, retos y resultados clave.</p>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <!-- Si quieres una carta sin recorte en la imagen, agrega .no-crop a card__media -->
-        <article class="card" data-tap>
-          <div class="card__inner">
-            <div class="card__face card__face--front">
               <div class="card__media no-crop">
-                <img src="https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?q=80&w=1600&auto=format&fit=crop" alt="Imagen sin recorte" />
+                <img src="espejista.png" alt="La Espejista: Identidad Visual y Transformación Personal" />
               </div>
+
               <div class="card__frontContent">
-                <div class="card__title">No recortar</div>
-                <div class="card__meta">Usa .no-crop si necesitas ver todo</div>
+                <div class="card__title">Identidad Visual</div>
+                <div class="card__meta">Tu reflejo exterior</div>
+              </div>
+            </div>
+
+            <div class="card__face card__face--back">
+              <div class="only-text">
+                <div>
+                  <h3 style="margin:0 0 8px">Asesoría de CV y Maquillaje</h3>
+                  <p style="margin:0;color:var(--muted)">Servicios para pulir tu imagen profesional y personal, revelando tu mejor versión.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-tap>
+          <div class="card__inner">
+            <div class="card__face card__face--front">
+              <div class="only-text">
+                <div>
+                  <div class="card__title">Soluciones Digitales</div>
+                  <div class="card__meta">Conexiones a medida</div>
+                </div>
               </div>
             </div>
             <div class="card__face card__face--back">
               <div class="only-text">
-                <p style="margin:0;color:var(--muted)">Muestra completa (object-fit: contain).</p>
+                <h3 style="margin:0 0 8px">Web y APIs</h3>
+                <p style="margin:0;color:var(--muted)">Desarrollo de páginas web estáticas, blogs, e integraciones de APIs y SaaS.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-tap>
+          <div class="card__inner">
+            <div class="card__face card__face--front">
+              <div class="only-text">
+                <div>
+                  <div class="card__title">Proyectos Personalizados</div>
+                  <div class="card__meta">Retos a nuestra medida</div>
+                </div>
+              </div>
+            </div>
+            <div class="card__face card__face--back">
+              <div class="only-text">
+                <p style="margin:0;color:var(--muted)">Cuéntanos tu idea y construimos un plan para hacerla realidad, desde la conceptualización hasta la implementación.</p>
               </div>
             </div>
           </div>
